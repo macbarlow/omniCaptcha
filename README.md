@@ -65,10 +65,29 @@ You will need to setup an account and add your FQDNs to receive your Site Key an
 1. Add the Custom LWC input to your OmniScript.  Select omniCaptcha
    - To enable Debug mode add a  Custom LWC Property of Debug = true
 2. omniCaptcha will write to the JSON in your OS under the name of the Custom LWC component.  It will create isHuman as either true or false.  
-3. To hide the next button on the step that includes omniCaptcha you just need to set conditional view of the next step as follows
+3. To hide the next button on the step that includes omniCaptcha you need to set conditional view of all the nodes that follow.  
 
 ![Image: images/conditional_view.png](/images/conditional_view.png)
  
+### For Guest access in Experience Cloud Site
+
+1. Grant access to three apex classes
+   - vlocity_ins.BusinessProcessController
+   - vlocity_ins.BusinessProcessDisplayController
+   - vlocity_ins.PlatformObjectMappings
+
+
+![Image: images/apex.png](/images/apex.png)
+
+
+2. Grant Read access for two objects
+   - vlocity OmniScripts
+   - vlocity OmniScript Compiled Definitions
+     - Grant read access to 'Content' & 'Sequence' fields
+
+![Image: images/objects.png](/images/objects.png)
+![Image: images/Compiled.png](/images/Compiled.png)
+
 
 Note:  
   - If the reCAPTCHA fails isHuman will be set to false.  
