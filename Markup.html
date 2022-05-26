@@ -1,0 +1,31 @@
+<script>
+    var grecaptchaReady = false;
+    var onloadCallback = function(){ grecaptchaReady = true; };
+    var verifyCallback = function(token) {
+        document.dispatchEvent(new CustomEvent('grecaptchaVerified', {'detail': {'response':token}}));
+    };
+    var expireCallback = function() {
+        document.dispatchEvent(new Event('grecaptchaExpired'));
+    };
+    var errorCallback = function() {
+        document.dispatchEvent(new Event('grecaptchaError'));
+    };
+    document.addEventListener('grecaptchaRender', function(e) {
+        onloadCallback = function() {
+            grecaptchaReady = true;
+            grecaptcha.render(e.detail.element, {
+                'sitekey': '6Leaw9sfAAAAAPMqjvckPSKjn3GExXTgDcrsqxiN',
+                'callback': verifyCallback,
+                'expired-callback': expireCallback,
+                'error-callback': errorCallback
+            });
+        };
+        if (grecaptchaReady) {
+            onloadCallback();
+        }
+    });
+    document.addEventListener('grecaptchaReset', function() {
+        grecaptcha.reset();
+    }); 
+</script>
+<script src='https://www.google.com/recaptcha/api.js?render=explicit&onload=onloadCallback' async defer></script>
