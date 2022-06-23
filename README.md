@@ -7,7 +7,7 @@ omniCaptcha is a custom LWC developed to be used in a OmniScript that is hosted 
 This version leverages reCAPTCHA v2 checkbox.  More information about reCAPTCHA can be found at: https://www.google.com/recaptcha/about/
 You will need to setup an account and add your FQDNs to receive your Site Key and Secret Key required to validate your page reCAPTCHA.  
 
- ![Image: images/recaptcha.png](/images/recaptcha.png)
+![Image: images/recaptcha.png]
 
 
 ## What is included in omniCaptcha?
